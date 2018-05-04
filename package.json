@@ -1,0 +1,65 @@
+{
+  "name": "admin",
+  "version": "1.0.0",
+  "author": "demian",
+  "description": "todaycafe's admin client",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "babel-plugin-module-resolver": "^3.1.1",
+    "classnames": "^2.2.5",
+    "jquery": "^3.3.1",
+    "next": "^6.0.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "styled-components": "^3.2.6",
+    "webpack": "^3.11.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "babel-jest": "^22.4.3",
+    "babel-plugin-styled-components": "^1.5.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-import-resolver-babel-module": "^4.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "jest": "^22.4.3",
+    "regenerator-runtime": "^0.11.1"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/test"
+    ],
+    "setupFiles": [
+      "<rootDir>/test/setup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "moduleNameMapper": {
+      "^Components(.*)$": "<rootDir>/components$1",
+      "^Pages(.*)$": "<rootDir>/pages$1",
+      "^Static(.*)$": "<rootDir>/static$1",
+      "^GraphQL(.*)$": "<rootDir>/graphqls$1",
+      "^Utils(.*)$": "<rootDir>/utils$1",
+      "^Constants(.*)$": "<rootDir>/constants$1"
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/.next/",
+      "<rootDir>/node_modules/"
+    ]
+  }
+}
