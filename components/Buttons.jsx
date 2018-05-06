@@ -1,9 +1,17 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-
 import classnames from 'classnames';
+import styled from 'styled-components';
 
+import { STYLE } from 'Constants';
 
+const { GET_REM } = STYLE;
+const StyledButton = styled.button`
+  padding: ${GET_REM(12)} ${GET_REM(10)};
+  margin-top: ${GET_REM(20)};
+
+  font-size: ${GET_REM(18)};
+`;
 const LOADING_TEXT = 'Loading...';
 export const Button = ({
   children,
@@ -14,7 +22,7 @@ export const Button = ({
   fluid,
   ...rest
 }) => (
-  <button
+  <StyledButton
     type={submit ? 'submit' : ''}
     className={classnames(
       `btn ${color}`,
@@ -27,7 +35,7 @@ export const Button = ({
     {
       loading ? LOADING_TEXT : children
     }
-  </button>
+  </StyledButton>
 );
 
 Button.defaultProps = {
