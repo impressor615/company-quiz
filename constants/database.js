@@ -540,5 +540,11 @@ export default {
       name: '이의현',
       img: '/static/members/zeu.png',
     },
+    {
+      department: '상품기획팀',
+      position: '팀원',
+      name: '신재우',
+      img: '/static/members/zeu.png',
+    },
   ],
 };

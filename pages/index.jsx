@@ -53,26 +53,32 @@ class App extends Component {
     const { name, department, position } = interviewee;
     const { members } = DATABASE;
 
+    let isValid = false;
     members.forEach((member) => {
       if (
         member.department === department &&
         member.name === name &&
         member.position === position
       ) {
-        Router.push({
-          pathname: '/quiz',
-          query: {
-            name,
-            department,
-            position,
-          },
-        });
+        isValid = true;
       }
     });
 
-    this.setState({
-      error: ERRORS[Math.floor(Math.random() * ERRORS.length)],
-    });
+
+    if (isValid) {
+      Router.push({
+        pathname: '/quiz',
+        query: {
+          name,
+          department,
+          position,
+        },
+      });
+    } else {
+      this.setState({
+        error: ERRORS[Math.floor(Math.random() * ERRORS.length)],
+      });
+    }
   }
 
   render() {

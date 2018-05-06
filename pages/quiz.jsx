@@ -120,6 +120,10 @@ class Quiz extends Component {
 
     if (stage === 3) {
       Router.push('/result');
+      this.setState({
+        errorMsg: '',
+      });
+      return;
     }
 
     this.setState(prev => ({
