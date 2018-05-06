@@ -2,6 +2,7 @@ import { STYLE } from 'Constants';
 import styled from 'styled-components';
 
 const { GET_REM } = STYLE;
+const largestMobileScreen = '767px';
 export const MainContainer = styled.div`
   position: absolute;
   width: 100%;
@@ -16,7 +17,11 @@ export const MainContainer = styled.div`
 `;
 
 export const ContentContainer = styled.div`
-  width: 25%;
+  width: 50%;
+
+  @media only screen and (min-width: ${largestMobileScreen}) {
+    width: 25%;
+  }
 `;
 
 export const Form = styled.form`
