@@ -2,7 +2,7 @@
   "name": "admin",
   "version": "1.0.0",
   "author": "demian",
-  "description": "todaycafe's admin client",
+  "description": "company-quiz",
   "license": "ISC",
   "main": "index.js",
   "scripts": {
