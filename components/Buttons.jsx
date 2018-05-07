@@ -12,7 +12,7 @@ const StyledButton = styled.button`
 
   font-size: ${GET_REM(18)};
 `;
-const LOADING_TEXT = 'Loading...';
+
 export const Button = ({
   children,
   loading,
@@ -20,6 +20,7 @@ export const Button = ({
   submit,
   onClick,
   fluid,
+  loadingText,
   ...rest
 }) => (
   <StyledButton
@@ -33,7 +34,7 @@ export const Button = ({
     {...rest}
   >
     {
-      loading ? LOADING_TEXT : children
+      loading ? loadingText : children
     }
   </StyledButton>
 );
@@ -43,6 +44,7 @@ Button.defaultProps = {
   color: 'btn-primary',
   submit: false,
   fluid: false,
+  loadingText: 'LOADING...',
   onClick: () => {},
 };
 
@@ -52,6 +54,7 @@ Button.propTypes = {
   loading: PropTypes.bool,
   color: PropTypes.string,
   onClick: PropTypes.func,
+  loadingText: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
 

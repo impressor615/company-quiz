@@ -45,7 +45,7 @@ class MyApp extends App {
             .fade-enter-active {
               left: 0;
               opacity: 1;
-              transition: all 1.5s cubic-bezier(.39,.575,.565,1);
+              transition: all 1s cubic-bezier(.39,.575,.565,1);
             }
             .fade-exit {
               right: 0;
@@ -54,7 +54,7 @@ class MyApp extends App {
             .fade-exit-active {
               right: -100vw;
               opacity: 0;
-              transition: all 1.5s cubic-bezier(.39,.575,.565,1);
+              transition: all 1s cubic-bezier(.39,.575,.565,1);
             }
           `}
         </style>

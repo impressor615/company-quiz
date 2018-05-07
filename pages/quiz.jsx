@@ -6,8 +6,8 @@ import Router from 'next/router';
 import {
   QuizImg,
   Center,
-  Form,
   Title,
+  Form,
 } from 'Components/StyleComponents';
 import { Button } from 'Components/Buttons';
 import { InputGroup, Alert } from 'Components/Inputs';
@@ -49,6 +49,7 @@ class Quiz extends Component {
     stage: 1,
     answer: '',
     errorMsg: '',
+    loading: false,
   }
 
   static async getInitialProps(ctx) {
@@ -126,16 +127,25 @@ class Quiz extends Component {
       return;
     }
 
-    this.setState(prev => ({
-      errorMsg: '',
-      answer: '',
-      stage: prev.stage + 1,
-    }));
+    this.setState({
+      loading: true,
+    });
+
+    setTimeout(() => {
+      this.setState(prev => ({
+        errorMsg: '',
+        answer: '',
+        stage: prev.stage + 1,
+        loading: false,
+      }));
+    }, 1000);
   }
 
   render() {
     const { data } = this.props;
-    const { stage, answer, errorMsg } = this.state;
+    const {
+      stage, answer, errorMsg, loading,
+    } = this.state;
     return (
       <Form onSubmit={this._onSubmit}>
         <Title>Quiz #{stage}</Title>
@@ -151,6 +161,13 @@ class Quiz extends Component {
         <Button
           submit
           fluid
+          color={loading ? 'btn-success' : 'btn-primary'}
+          loading={loading}
+          loadingText={
+            stage !== 3
+              ? '오! 정답입니다. 다음문제로 갑니다.'
+              : '정답입니다! 마지막 페이지로 이동합니다.'
+          }
         >
           제출하기
         </Button>

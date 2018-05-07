@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Router from 'next/router';
+import styled from 'styled-components';
 
 import { InputGroup, Alert } from 'Components/Inputs';
 import Dropdown from 'Components/Dropdown';
@@ -8,6 +9,9 @@ import { Form, Title, FlexContainer } from 'Components/StyleComponents';
 import { DATABASE, STYLE } from 'Constants';
 
 
+const NormalText = styled.span`
+  font-weight: 100;
+`;
 const ERRORS = ['tpay 직원이 맞으신가요? 정보를 확인해주세요!', '정보를 정확히 입력해주세요!'];
 class App extends Component {
   state = {
@@ -87,7 +91,7 @@ class App extends Component {
     return (
       <Fragment>
         <Title>
-          동료 퀴즈
+          tpay <NormalText>동료 퀴즈</NormalText>
         </Title>
         <Form onSubmit={this._onSubmit}>
           <InputGroup>
