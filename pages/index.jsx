@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import Router from 'next/router';
 import styled from 'styled-components';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 import { InputGroup, Alert } from 'Components/Inputs';
-import Dropdown from 'Components/Dropdown';
 import { Button } from 'Components/Buttons';
 import { Form, Title, FlexContainer } from 'Components/StyleComponents';
 import { DATABASE, STYLE } from 'Constants';
@@ -15,6 +15,8 @@ const NormalText = styled.span`
 const ERRORS = ['tpay 직원이 맞으신가요? 정보를 확인해주세요!', '정보를 정확히 입력해주세요!'];
 class App extends Component {
   state = {
+    departmentIsToggled: false,
+    positionIsToggled: false,
     error: '',
     interviewee: {
       name: '',
@@ -30,6 +32,18 @@ class App extends Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this._updateFontSize);
+  }
+
+  _toggleDepartment = () => {
+    this.setState(prevState => ({
+      departmentIsToggled: !prevState.departmentIsToggled,
+    }));
+  }
+
+  _togglePosition = () => {
+    this.setState(prevState => ({
+      positionIsToggled: !prevState.positionIsToggled,
+    }));
   }
 
   _updateFontSize = () => {
@@ -86,7 +100,7 @@ class App extends Component {
   }
 
   render() {
-    const { interviewee, error } = this.state;
+    const { interviewee, error, departmentIsToggled, positionIsToggled } = this.state;
     const { name, department, position } = interviewee;
     return (
       <Fragment>
@@ -108,23 +122,51 @@ class App extends Component {
           <FlexContainer>
             <InputGroup>
               <InputGroup.Label>부서</InputGroup.Label>
-              <Dropdown
-                name="department"
-                color="btn-light"
-                items={DATABASE.departments}
-                value={department}
-                onChange={this._onChange}
-              />
+              <Dropdown isOpen={departmentIsToggled} toggle={this._toggleDepartment}>
+                <DropdownToggle caret>
+                  { department }
+                </DropdownToggle>
+                <DropdownMenu>
+                  {
+                    DATABASE.departments.map((item, idx) => (
+                      <DropdownItem
+                        // eslint-disable-next-line
+                        key={idx}
+                        onClick={this._onChange}
+                        value={item}
+                        name="department"
+                        active={department === item}
+                      >
+                        {item}
+                      </DropdownItem>
+                    ))
+                  }
+                </DropdownMenu>
+              </Dropdown>
             </InputGroup>
             <InputGroup>
               <InputGroup.Label>직책</InputGroup.Label>
-              <Dropdown
-                name="position"
-                color="btn-light"
-                items={DATABASE.positions}
-                value={position}
-                onChange={this._onChange}
-              />
+              <Dropdown isOpen={positionIsToggled} toggle={this._togglePosition}>
+                <DropdownToggle caret>
+                  { position }
+                </DropdownToggle>
+                <DropdownMenu>
+                  {
+                    DATABASE.positions.map((item, idx) => (
+                      <DropdownItem
+                        // eslint-disable-next-line
+                        key={idx}
+                        onClick={this._onChange}
+                        value={item}
+                        name="position"
+                        active={position === item}
+                      >
+                        {item}
+                      </DropdownItem>
+                    ))
+                  }
+                </DropdownMenu>
+              </Dropdown>
             </InputGroup>
           </FlexContainer>
           {
