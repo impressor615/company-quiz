@@ -17,7 +17,7 @@ export const MainContainer = styled.div`
 `;
 
 export const ContentContainer = styled.div`
-  width: 50%;
+  width: 80%;
 
   @media only screen and (min-width: ${largestMobileScreen}) {
     width: 25%;
@@ -33,11 +33,15 @@ export const Form = styled.form`
 `;
 
 export const Title = styled.div`
-  font-size: ${GET_REM(30)};
+  font-size: ${GET_REM(28)};
   font-weight: bold;
   text-align: center;
 
   margin-bottom: ${GET_REM(40)};
+
+  @media only screen and (min-width: ${largestMobileScreen}) {
+    font-size: ${GET_REM(30)};
+  }
 `;
 
 export const FlexContainer = styled.div`
@@ -75,6 +79,10 @@ export const Center = styled.div`
 `;
 
 export const QuizImg = styled.img`
-  width: ${GET_REM(300)};
+  width: 50%;
   margin-bottom: ${GET_REM(30)};
+
+  @media only screen and (min-width: ${largestMobileScreen}) {
+    width: ${GET_REM(300)};
+  }
 `;

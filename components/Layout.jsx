@@ -17,7 +17,7 @@ class Layout extends Component {
 
   _updateFontSize = () => {
     const width = window.innerWidth;
-    if (width <= STYLE.SCREEN.MOBILE_BREAKPOINT) {
+    if (width <= STYLE.SCREEN.MOBILE_BERAKPOINT) {
       $('html').css('font-size', `${width / 26.78}px`);
     } else {
       $('html').css('font-size', `${width / 137}px`);

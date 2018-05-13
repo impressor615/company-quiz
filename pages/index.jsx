@@ -100,7 +100,9 @@ class App extends Component {
   }
 
   render() {
-    const { interviewee, error, departmentIsToggled, positionIsToggled } = this.state;
+    const {
+      interviewee, error, departmentIsToggled, positionIsToggled,
+    } = this.state;
     const { name, department, position } = interviewee;
     return (
       <Fragment>
@@ -126,7 +128,12 @@ class App extends Component {
                 <DropdownToggle caret>
                   { department }
                 </DropdownToggle>
-                <DropdownMenu>
+                <DropdownMenu
+                  style={{
+                    height: '90vh',
+                    overflow: 'auto',
+                  }}
+                >
                   {
                     DATABASE.departments.map((item, idx) => (
                       <DropdownItem
