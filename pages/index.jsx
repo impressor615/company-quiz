@@ -12,6 +12,15 @@ import { DATABASE, STYLE } from 'Constants';
 const NormalText = styled.span`
   font-weight: 100;
 `;
+
+const StyledDropdownMenu = styled(DropdownMenu)`
+  overflow: auto;
+  height: 90vh;
+
+  @media only screen and (min-width: 767px) {
+    height: auto;
+  }
+`;
 const ERRORS = ['tpay 직원이 맞으신가요? 정보를 확인해주세요!', '정보를 정확히 입력해주세요!'];
 class App extends Component {
   state = {
@@ -128,12 +137,7 @@ class App extends Component {
                 <DropdownToggle caret>
                   { department }
                 </DropdownToggle>
-                <DropdownMenu
-                  style={{
-                    height: '90vh',
-                    overflow: 'auto',
-                  }}
-                >
+                <StyledDropdownMenu>
                   {
                     DATABASE.departments.map((item, idx) => (
                       <DropdownItem
@@ -148,7 +152,7 @@ class App extends Component {
                       </DropdownItem>
                     ))
                   }
-                </DropdownMenu>
+                </StyledDropdownMenu>
               </Dropdown>
             </InputGroup>
             <InputGroup>
