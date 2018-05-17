@@ -81,12 +81,6 @@ export default {
     {
       department: '고객지원팀',
       position: '팀원',
-      name: '김희진',
-      img: '/static/members/고객지원팀_김희진.jpg',
-    },
-    {
-      department: '고객지원팀',
-      position: '팀원',
       name: '이정희',
       img: '/static/members/고객지원팀_이정희.jpg',
     },
@@ -117,62 +111,14 @@ export default {
     {
       department: '고객지원팀',
       position: '팀원',
-      name: '김부진',
-      img: '/static/members/고객지원팀_김부진.jpg',
-    },
-    {
-      department: '고객지원팀',
-      position: '팀원',
-      name: '이성곤',
-      img: '/static/members/고객지원팀_이성곤.jpg',
-    },
-    {
-      department: '고객지원팀',
-      position: '팀원',
       name: '김미경',
       img: '/static/members/고객지원팀_김미경.jpg',
-    },
-    {
-      department: '고객지원팀',
-      position: '팀원',
-      name: '최희정',
-      img: '/static/members/고객지원팀_최희정.jpg',
-    },
-    {
-      department: '고객지원팀',
-      position: '팀원',
-      name: '백은지',
-      img: '/static/members/고객지원팀_백은지.jpg',
-    },
-    {
-      department: '고객지원팀',
-      position: '팀원',
-      name: '양혜경',
-      img: '/static/members/고객지원팀_양혜경.jpg',
     },
     {
       department: '기술지원1팀',
       position: '팀장',
       name: '김민수',
       img: '/static/members/기술지원1팀_김민수.jpg',
-    },
-    {
-      department: '기술지원1팀',
-      position: '팀원',
-      name: '김해원',
-      img: '/static/members/기술지원1팀_김해원.jpg',
-    },
-    {
-      department: '기술지원1팀',
-      position: '팀원',
-      name: '김태흥',
-      img: '/static/members/기술지원1팀_김태흥.jpg',
-    },
-    {
-      department: '기술지원1팀',
-      position: '팀원',
-      name: '양근혁',
-      img: '/static/members/기술지원1팀_양근혁.jpg',
     },
     {
       department: '기술지원1팀',
@@ -205,28 +151,10 @@ export default {
       img: '/static/members/기술지원1팀_이준.jpg',
     },
     {
-      department: '기술지원1팀',
-      position: '팀원',
-      name: '전명훈',
-      img: '/static/members/기술지원1팀_전명훈.jpg',
-    },
-    {
       department: '기술지원2팀',
       position: '팀장',
       name: '고준환',
       img: '/static/members/기술지원2팀_고준환.jpg',
-    },
-    {
-      department: '기술지원2팀',
-      position: '팀원',
-      name: '백형식',
-      img: '/static/members/기술지원2팀_백형식.jpg',
-    },
-    {
-      department: '기술지원2팀',
-      position: '팀원',
-      name: '우상재',
-      img: '/static/members/기술지원2팀_우상재.jpg',
     },
     {
       department: '기술지원2팀',
@@ -245,12 +173,6 @@ export default {
       position: '팀원',
       name: '이진웅',
       img: '/static/members/기술지원2팀_이진웅.jpg',
-    },
-    {
-      department: '기술지원2팀',
-      position: '팀원',
-      name: '박현철',
-      img: '/static/members/기술지원2팀_박현철.jpg',
     },
     {
       department: '기획운영팀',
@@ -307,18 +229,6 @@ export default {
       img: '/static/members/물류팀_김기원.jpg',
     },
     {
-      department: '물류팀',
-      position: '팀원',
-      name: '김상태',
-      img: '/static/members/물류팀_김상태.jpg',
-    },
-    {
-      department: '물류팀',
-      position: '팀원',
-      name: '정경학',
-      img: '/static/members/물류팀_정경학.jpg',
-    },
-    {
       department: '영업관리팀',
       position: '팀장',
       name: '김영삼',
@@ -335,18 +245,6 @@ export default {
       position: '팀원',
       name: '정용현',
       img: '/static/members/영업관리팀_정용현.jpg',
-    },
-    {
-      department: '영업관리팀',
-      position: '팀원',
-      name: '김문수',
-      img: '/static/members/영업관리팀_김문수.jpg',
-    },
-    {
-      department: '영업관리팀',
-      position: '팀원',
-      name: '김승배',
-      img: '/static/members/영업관리팀_김승배.jpg',
     },
     {
       department: '원격지원팀',
@@ -393,12 +291,6 @@ export default {
     {
       department: '원격지원팀',
       position: '팀원',
-      name: '하태준',
-      img: '/static/members/원격지원팀_하태준.jpg',
-    },
-    {
-      department: '원격지원팀',
-      position: '팀원',
       name: '김윤형',
       img: '/static/members/원격지원팀_김윤형.jpg',
     },
@@ -429,38 +321,8 @@ export default {
     {
       department: '원격지원팀',
       position: '팀원',
-      name: '박재혁',
-      img: '/static/members/원격지원팀_박재혁.jpg',
-    },
-    {
-      department: '원격지원팀',
-      position: '팀원',
-      name: '문종헌',
-      img: '/static/members/원격지원팀_문종헌.jpg',
-    },
-    {
-      department: '원격지원팀',
-      position: '팀원',
       name: '강우현',
       img: '/static/members/원격지원팀_강우현.jpg',
-    },
-    {
-      department: '원격지원팀',
-      position: '팀원',
-      name: '성준호',
-      img: '/static/members/원격지원팀_성준호.jpg',
-    },
-    {
-      department: '원격지원팀',
-      position: '팀원',
-      name: '주재형',
-      img: '/static/members/원격지원팀_주재형.jpg',
-    },
-    {
-      department: '원격지원팀',
-      position: '팀원',
-      name: '김양화',
-      img: '/static/members/원격지원팀_김양화.jpg',
     },
     {
       department: '파트너사업팀',
@@ -473,12 +335,6 @@ export default {
       position: '팀원',
       name: '황선혜',
       img: '/static/members/파트너사업팀_황선혜.jpg',
-    },
-    {
-      department: '파트너사업팀',
-      position: '팀원',
-      name: '윤인애',
-      img: '/static/members/파트너사업팀_윤인애.jpg',
     },
     {
       department: '회계팀',
@@ -505,30 +361,6 @@ export default {
       img: '/static/members/tBoard개발팀_홍민기.jpg',
     },
     {
-      department: 'tBoard개발팀',
-      position: '팀원',
-      name: '최지현',
-      img: '/static/members/tBoard개발팀_최지현.jpg',
-    },
-    {
-      department: 'tBoard개발팀',
-      position: '팀원',
-      name: '문병수',
-      img: '/static/members/tBoard개발팀_문병수.jpg',
-    },
-    {
-      department: 'tBoard개발팀',
-      position: '팀원',
-      name: 'Jordy Ruiter',
-      img: '/static/members/tBoard개발팀_조르디.jpg',
-    },
-    {
-      department: '홍보팀',
-      position: '팀원',
-      name: '이의현',
-      img: '/static/members/홍보팀_이의현.jpg',
-    },
-    {
       department: '수원지사',
       position: '지사장',
       name: '오진택',
@@ -551,18 +383,6 @@ export default {
       position: '팀원',
       name: '이길모',
       img: '/static/members/기술지원팀_이길모.jpg',
-    },
-    {
-      department: '기술지원팀',
-      position: '팀원',
-      name: '김형준',
-      img: '/static/members/기술지원팀_김형준.jpg',
-    },
-    {
-      department: '기술지원팀',
-      position: '팀원',
-      name: '조상범',
-      img: '/static/members/기술지원팀_조상범.jpg',
     },
     {
       department: '인천지사',
@@ -631,24 +451,6 @@ export default {
       img: '/static/members/기술지원팀_김수한.jpg',
     },
     {
-      department: '기술지원팀',
-      position: '팀원',
-      name: '윤성용',
-      img: '/static/members/기술지원팀_윤성용.jpg',
-    },
-    {
-      department: '기술지원팀',
-      position: '팀원',
-      name: '김수민',
-      img: '/static/members/기술지원팀_김수민.jpg',
-    },
-    {
-      department: '기술지원팀',
-      position: '팀원',
-      name: '이가을',
-      img: '/static/members/기술지원팀_이가을.jpg',
-    },
-    {
       department: '영업관리팀',
       position: '팀장',
       name: '박인성',
@@ -659,12 +461,6 @@ export default {
       position: '팀원',
       name: '김정훈',
       img: '/static/members/영업관리팀_김정훈.jpg',
-    },
-    {
-      department: '영업관리팀',
-      position: '팀원',
-      name: '연응혁',
-      img: '/static/members/영업관리팀_연응혁.jpg',
     },
     {
       department: '기술/영업팀',
@@ -697,24 +493,6 @@ export default {
       img: '/static/members/기술영업팀_김지현.jpg',
     },
     {
-      department: '기술/영업팀',
-      position: '팀원',
-      name: '이명건',
-      img: '/static/members/기술영업팀_이명건.jpg',
-    },
-    {
-      department: '경영지원팀',
-      position: '팀원',
-      name: '최은경',
-      img: '/static/members/경영지원팀_최은경.jpg',
-    },
-    {
-      department: '경영지원팀',
-      position: '팀원',
-      name: '이지현',
-      img: '/static/members/경영지원팀_이지현.jpg',
-    },
-    {
       department: '전략사업팀',
       position: '팀장',
       name: '이규현',
@@ -733,22 +511,10 @@ export default {
       img: '/static/members/전략사업팀_임정호.jpg',
     },
     {
-      department: '전략사업팀',
-      position: '팀원',
-      name: '신직수',
-      img: '/static/members/전략사업팀_신직수.jpg',
-    },
-    {
       department: '상품기획팀',
       position: '팀원',
       name: '신재우',
       img: '/static/members/상품기획팀_신재우.jpg',
-    },
-    {
-      department: '상품기획팀',
-      position: '팀원',
-      name: '방진호',
-      img: '/static/members/상품기획팀_방진호.jpg',
     },
     {
       department: '상품기획팀',
