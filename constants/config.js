@@ -3,4 +3,5 @@ export default {
   GRAPHQL_SERVER: {
     URI: 'http://localhost:4000',
   },
+  API: 'https://localhost:3000',
 };

@@ -53,7 +53,7 @@ class Quiz extends Component {
   }
 
   static async getInitialProps(ctx) {
-    const { query, res } = ctx;
+    const { query, res, req } = ctx;
     const { name, department, position } = query;
     const isValid = name && department && position;
     if (!isValid) {
@@ -70,31 +70,31 @@ class Quiz extends Component {
       }
     }
 
+    const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+    const { question_counts, options_count } = await fetch(`${baseUrl}/api/settings`)
+      .then(response => response.json());
+
     // exclude one who apply for the survey
     const { members } = DATABASE;
     const colleagues = members.filter(
       member => (
-        member.name !== name &&
-        member.position !== position &&
-        member.department !== department
+        member.name !== name ||
+        member.department !== department ||
+        member.position !== position
       ),
     );
 
-    const quizSource = _.shuffle(colleagues).slice(0, 9);
-    const data = [
+    const quizSource = _.shuffle(colleagues).slice(0, question_counts * options_count);
+    const data = Array.from({ length: question_counts }, (v, i) => (
       {
-        answer: quizSource[0],
-        options: _.shuffle(quizSource.slice(0, 3)),
-      },
-      {
-        answer: quizSource[3],
-        options: _.shuffle(quizSource.slice(3, 6)),
-      },
-      {
-        answer: quizSource[6],
-        options: _.shuffle(quizSource.slice(6)),
-      },
-    ];
+        answer: quizSource[options_count * i],
+        options: _.shuffle(
+          quizSource.slice(
+            options_count * i, options_count * (i + 1),
+          ),
+        ),
+      }
+    ));
 
     return { data };
   }
@@ -119,7 +119,7 @@ class Quiz extends Component {
       return;
     }
 
-    if (stage === 3) {
+    if (stage === this.props.data.length) {
       Router.push('/result');
       this.setState({
         errorMsg: '',

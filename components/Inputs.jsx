@@ -18,14 +18,19 @@ Label.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
 };
 
-export const Alert = ({ children, ...rest }) => (
-  <ErrorDiv className="alert alert-danger" role="alert" {...rest}>
+export const Alert = ({ children, color, ...rest }) => (
+  <ErrorDiv className={`alert ${color}`} role="alert" {...rest}>
     {children}
   </ErrorDiv>
 );
 
+Alert.defaultProps = {
+  color: 'alert-danger',
+};
+
 Alert.propTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+  color: PropTypes.string,
 };
 
 export const Input = ({
@@ -56,7 +61,7 @@ Input.defaultProps = {
 Input.propTypes = {
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   onChange: PropTypes.func.isRequired,
   required: PropTypes.bool,
   placeholder: PropTypes.string,
