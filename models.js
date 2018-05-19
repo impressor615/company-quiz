@@ -36,7 +36,7 @@ const scoreSchema = new Schema({
     type: Number,
     required: true,
   },
-  incorrect_count: {
+  correct_percent: {
     type: Number,
     required: true,
   },

@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import fetch from 'isomorphic-fetch';
 
@@ -20,6 +20,14 @@ const SettingText = styled.p`
 `;
 const NormalText = styled.span`
   font-weight: 100;
+`;
+const ContentContainer = styled.div`
+  width: 100%;
+
+  @media only screen and (min-width: 767px) {
+    width: 50%;
+    margin: auto;
+  }
 `;
 class Settings extends Component {
   state = {
@@ -118,7 +126,7 @@ class Settings extends Component {
       isError,
     } = this.state;
     return (
-      <Fragment>
+      <ContentContainer>
         <Title>
           퀴즈<NormalText>세팅</NormalText>
         </Title>
@@ -162,7 +170,7 @@ class Settings extends Component {
             저장하기
           </Button>
         </Form>
-      </Fragment>
+      </ContentContainer>
     );
   }
 }

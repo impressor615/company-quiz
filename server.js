@@ -38,6 +38,22 @@ app.prepare()
         options_count,
       }).then(() => res.json({}), err => res.json({ err }));
     });
+    server.get('/api/result', (req, res) => (
+      result
+        .find({}, 'name department position result')
+        .sort('-result.correct_percent')
+        .limit(8)
+        .exec()
+        .then(data => res.json(data))
+    ));
+    server.post('/api/result', (req, res) => {
+      const {
+        name, department, position, data,
+      } = req.body;
+      return result.create({
+        name, department, position, result: data,
+      }).then(() => res.json({}), err => res.json({ err }));
+    });
     server.get('*', (req, res) => handle(req, res));
 
     server.listen(port, (err) => {

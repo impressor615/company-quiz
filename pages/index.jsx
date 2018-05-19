@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Router from 'next/router';
 import styled from 'styled-components';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
@@ -9,6 +9,14 @@ import { Form, Title, FlexContainer } from 'Components/StyleComponents';
 import { DATABASE, STYLE } from 'Constants';
 
 
+const ContentContainer = styled.div`
+  width: 100%;
+
+  @media only screen and (min-width: 767px) {
+    width: 50%;
+    margin: auto;
+  }
+`;
 const NormalText = styled.span`
   font-weight: 100;
 `;
@@ -114,7 +122,7 @@ class App extends Component {
     } = this.state;
     const { name, department, position } = interviewee;
     return (
-      <Fragment>
+      <ContentContainer>
         <Title>
           tpay <NormalText>동료 퀴즈</NormalText>
         </Title>
@@ -191,7 +199,7 @@ class App extends Component {
             시작하기
           </Button>
         </Form>
-      </Fragment>
+      </ContentContainer>
     );
   }
 }

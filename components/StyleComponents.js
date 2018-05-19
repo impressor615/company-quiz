@@ -20,7 +20,7 @@ export const ContentContainer = styled.div`
   width: 80%;
 
   @media only screen and (min-width: ${largestMobileScreen}) {
-    width: 25%;
+    width: 50%;
   }
 `;
 

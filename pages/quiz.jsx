@@ -2,6 +2,8 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Router from 'next/router';
+import fetch from 'isomorphic-fetch';
+import styled from 'styled-components';
 
 import {
   QuizImg,
@@ -44,12 +46,23 @@ Question.propTypes = {
   current: PropTypes.string.isRequired,
 };
 
+
+const ContentContainer = styled.div`
+  width: 100%;
+
+  @media only screen and (min-width: 767px) {
+    width: 50%;
+    margin: auto;
+  }
+`;
 class Quiz extends Component {
   state = {
     stage: 1,
     answer: '',
     errorMsg: '',
     loading: false,
+    alert: false,
+    correct: 0,
   }
 
   static async getInitialProps(ctx) {
@@ -96,7 +109,9 @@ class Quiz extends Component {
       }
     ));
 
-    return { data };
+    return {
+      data, name, department, position,
+    };
   }
 
   _onClick = (e) => {
@@ -107,19 +122,45 @@ class Quiz extends Component {
     });
   }
 
-  _onSubmit = (e) => {
+  _onSubmit = async (e) => {
     e.preventDefault();
-    const { stage, answer } = this.state;
-    const data = this.props.data[stage - 1];
-    const quizAnswer = `${data.answer.department}/${data.answer.name}`;
-    if (answer !== quizAnswer) {
+    const { stage, answer, correct } = this.state;
+
+    if (!answer) {
       this.setState({
-        errorMsg: ERRORS[Math.floor(Math.random() * ERRORS.length)],
+        alert: true,
       });
       return;
     }
 
-    if (stage === this.props.data.length) {
+    const data = this.props.data[stage - 1];
+    const quizAnswer = `${data.answer.department}/${data.answer.name}`;
+    const question_count = this.props.data.length;
+    if (stage === question_count) {
+      const { name, position, department } = this.props;
+      const postData = {
+        name,
+        position,
+        department,
+        data: {
+          question_count,
+          correct_count: correct,
+          correct_percent: Math.floor((correct / question_count) * 100, 2),
+        },
+      };
+
+      const fetchResult = await fetch('/api/result', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(postData),
+      });
+
+      if (fetchResult.err) {
+        throw new Error('fetch failed');
+      }
+
       Router.push('/result');
       this.setState({
         errorMsg: '',
@@ -127,9 +168,19 @@ class Quiz extends Component {
       return;
     }
 
-    this.setState({
-      loading: true,
-    });
+    if (answer !== quizAnswer) {
+      this.setState({
+        loading: true,
+        errorMsg: ERRORS[Math.floor(Math.random() * ERRORS.length)],
+        alert: false,
+      });
+    } else {
+      this.setState(prev => ({
+        loading: true,
+        correct: prev.correct + 1,
+        alert: false,
+      }));
+    }
 
     setTimeout(() => {
       this.setState(prev => ({
@@ -144,40 +195,57 @@ class Quiz extends Component {
   render() {
     const { data } = this.props;
     const {
-      stage, answer, errorMsg, loading,
+      stage, answer, errorMsg, loading, alert,
     } = this.state;
     return (
-      <Form onSubmit={this._onSubmit}>
-        <Title>Quiz #{stage}</Title>
-        <Question
-          data={data[stage - 1]}
-          onClick={this._onClick}
-          current={answer}
-        />
-        {
-          errorMsg ?
-            <Alert>{ errorMsg }</Alert> : null
-        }
-        <Button
-          submit
-          fluid
-          color={loading ? 'btn-success' : 'btn-primary'}
-          loading={loading}
-          loadingText={
-            stage !== 3
-              ? '오! 정답입니다. 다음문제로 갑니다.'
-              : '정답입니다! 마지막 페이지로 이동합니다.'
+      <ContentContainer>
+        <Form onSubmit={this._onSubmit}>
+          <Title>Quiz #{stage}</Title>
+          <Question
+            data={data[stage - 1]}
+            onClick={this._onClick}
+            current={answer}
+          />
+          {
+            alert ?
+              <Alert>선택지를 선택해야 진행이 가능합니다.</Alert> : null
           }
-        >
-          제출하기
-        </Button>
-      </Form>
+          {
+            !errorMsg ?
+              <Button
+                submit
+                fluid
+                color={loading ? 'btn-success' : 'btn-primary'}
+                loading={loading}
+                loadingText={
+                  stage !== data.length
+                    ? '오! 정답입니다. 다음문제로 갑니다.'
+                    : '정답입니다! 마지막 페이지로 이동합니다.'
+                }
+              >
+                제출하기
+              </Button> :
+              <Button
+                submit
+                fluid
+                color={loading ? 'btn-danger' : 'btn-primary'}
+                loading={loading}
+                loadingText="안타깝지만, 정답이 아닙니다."
+              >
+                제출하기
+              </Button>
+          }
+        </Form>
+      </ContentContainer>
     );
   }
 }
 
 Quiz.propTypes = {
   data: PropTypes.array.isRequired,
+  name: PropTypes.string.isRequired,
+  department: PropTypes.string.isRequired,
+  position: PropTypes.string.isRequired,
 };
 
 export default Quiz;
