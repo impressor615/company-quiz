@@ -41,12 +41,15 @@ class Settings extends Component {
 
   static async getInitialProps({ req }) {
     const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
-    const { question_counts, options_count } = await fetch(`${baseUrl}/api/settings`)
+    const result = await fetch(`${baseUrl}/api/settings`)
       .then(res => res.json());
-    return {
-      question_counts,
-      options_count,
-    };
+
+    if (result) {
+      return {
+        question_counts: result.question_counts,
+        options_count: result.options_count,
+      };
+    }
   }
 
   // instead of componentwillreceiveprops

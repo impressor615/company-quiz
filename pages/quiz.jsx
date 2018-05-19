@@ -81,11 +81,28 @@ class Quiz extends Component {
         // client redirect
         Router.push('/');
       }
+
+      return;
     }
 
     const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
-    const { question_counts, options_count } = await fetch(`${baseUrl}/api/settings`)
+    const result = await fetch(`${baseUrl}/api/settings`)
       .then(response => response.json());
+
+    if (!result) {
+      if (res) {
+        res.writeHead(302, {
+          Location: '/settings',
+        });
+        res.end();
+        res.finished = true;
+      } else {
+        // client redirect
+        Router.push('/settings');
+      }
+
+      return;
+    }
 
     // exclude one who apply for the survey
     const { members } = DATABASE;
@@ -97,13 +114,15 @@ class Quiz extends Component {
       ),
     );
 
-    const quizSource = _.shuffle(colleagues).slice(0, question_counts * options_count);
-    const data = Array.from({ length: question_counts }, (v, i) => (
+    const quizSource = _.shuffle(colleagues).slice(
+      0, result.question_counts * result.options_count,
+    );
+    const data = Array.from({ length: result.question_counts }, (v, i) => (
       {
-        answer: quizSource[options_count * i],
+        answer: quizSource[result.options_count * i],
         options: _.shuffle(
           quizSource.slice(
-            options_count * i, options_count * (i + 1),
+            result.options_count * i, result.options_count * (i + 1),
           ),
         ),
       }
