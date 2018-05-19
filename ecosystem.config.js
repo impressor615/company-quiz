@@ -27,6 +27,7 @@ module.exports = {
       user: 'ubuntu',
       host: 'ec2-13-125-229-58.ap-northeast-2.compute.amazonaws.com',
       ref: 'origin/master',
+      key: '~/.ssh/dreamers.pem',
       repo: 'git@github.com:impressor615/company-quiz.git',
       path: '/home/ubuntu/company-quiz',
       'post-deploy': 'npm install && pm2 startOrRestart pm2_deploy',
