@@ -3,6 +3,7 @@ module.exports = {
     name: 'tpay',
     script: 'npm'
     args: 'start'
+    env: { COMMON_VARIABLE: true },
   }],
   deploy: {
     production: {
