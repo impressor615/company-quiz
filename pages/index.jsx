@@ -124,7 +124,7 @@ class App extends Component {
     return (
       <ContentContainer>
         <Title>
-          tpay <NormalText>동료 퀴즈</NormalText>
+          <NormalText>너,&nbsp;</NormalText>나의 동료<NormalText>가 되라!</NormalText>
         </Title>
         <Form onSubmit={this._onSubmit}>
           <InputGroup>
