@@ -42,7 +42,7 @@ app.prepare()
       result
         .find({}, 'name department position result')
         .sort('-result.correct_percent')
-        .limit(8)
+        .limit(5)
         .exec()
         .then(data => res.json(data))
     ));
