@@ -1,9 +1,7 @@
 module.exports = {
   apps: [{
     name: 'tpay',
-    script: 'npm'
-    args: 'start'
-    env: { COMMON_VARIABLE: true },
+    script: 'npm start'
   }],
   deploy: {
     production: {
