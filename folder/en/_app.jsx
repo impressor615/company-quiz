@@ -1,7 +1,7 @@
 testing
-import App, { Container } from 'next/app';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import styled from 'styled-components';
+testing2
+testing3
+testing4
 
 import Layout from 'Components/Layout';
 
