@@ -61,7 +61,7 @@ const goBack = () => Router.push('/');
 class Result extends Component {
   static async getInitialProps({ req }) {
     const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
-    const result = await fetch(`${baseUrl}/api/result`)
+    const result = await fetch(`${baseUrl}/api/results`)
       .then(res => res.json());
     return {
       result,
